@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo project</title>
+    <style>
+      body{
+        
+      }
+      .custom{
+        background: none;
+        border: none;;
+      }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body style="background-color: lightgray;">
+
+  <div class="row">
+    <div class="col-md-6 col-12 alert todo_list"></div>
+    <div class="col-md-6 col-12 alert">
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Name:</label>
+        <input type="text" class="form-control name" id="formGroupExampleInput" placeholder="Name...">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Content:</label>
+        <input type="text" class="form-control content" id="formGroupExampleInput2" placeholder="Content...">
+      </div>
+      <button type="button" class="btn btn-primary mt-2 button">Add</button>
+    </div>
+  </div>
+
+  
+    <script>
+      Name=document.querySelector(".name");
+      content=document.querySelector(".content");
+      button=document.querySelector(".button");
+      let name_input;
+      let content_input;
+      Name.addEventListener('input',function(){
+        name_input=Name.value;
+      });
+      content.addEventListener('input',function(){
+        content_input=content.value;
+      });
+      button.addEventListener('click',add);
+  function add(){
+    if(name_input==undefined || content_input==undefined){
+      alert("Please fill the inputs");
+    }
+    else{
+      let todo_list=document.querySelector(".todo_list");
+      todo_list.innerHTML+=`<div class="alert alert-light" >
+      ${name_input} : ${content_input}
+      <button type="button" class="custom" data-bs-dismiss="alert" aria-label="Close">
+      <i class="bi bi-trash"></i>
+      </button>
+    </div>`;
+    Name.value="";
+    content.value="";
+    name_input=undefined;
+    content_input=undefined;
+      
+
+  }}
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
