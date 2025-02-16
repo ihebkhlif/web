@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <li class="li">i</li>
+        <li class="li">love</li>
+        <li class="li">watching</li>
+        <li class="li">anime</li>
+    </ol>
+</body>
+<script>
+function getRandomColor() {
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    return `#${randomColor.padStart(6, '0')}`;
+}
+li=document.querySelectorAll(".li");
+li.forEach(element => {
+    element.addEventListener('click',()=>{
+        element.style.color=getRandomColor();
+    });});
+
+</script>
+</html>
